@@ -20,7 +20,7 @@ const AgeGroupPriceList = (props) => {
     );
     const dispatch = useDispatch();
 
-    // Update ovelap & notInclude when add or remove a group
+    // Update ovelap & notInclude when add or remove an AgeGroupPrice
     useEffect(() => {
         let ageGroup = generateAgeGroup(priceSetupList);
         let resultObj = getNumberIntervals(ageGroup);
@@ -57,6 +57,7 @@ const AgeGroupPriceList = (props) => {
         }
     }, [priceSetupList.length]);
 
+    // Add an AgeGroupPrice
     const handleAdd = () => {
         let newId = priceSetupList[priceSetupList.length - 1].id + 1;
         let initState = {
@@ -70,6 +71,7 @@ const AgeGroupPriceList = (props) => {
         dispatch(addPriceSetup(initState));
     };
 
+    // Generate output result
     props.onChange(generateResult(priceSetupList));
 
     return (

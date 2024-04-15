@@ -1,5 +1,6 @@
 import { AGE_MIN, AGE_MAX } from "../config/setting";
 
+// Add commas for every thousandth
 export const addComma = (price) => {
     let priceStr = price.toString();
     const regex = /(\d)(?=(\d{3})+(?!\d))(?<!\.\d*)/g;
@@ -7,11 +8,13 @@ export const addComma = (price) => {
     return formattedPrice;
 };
 
+// Remove commas from formatted price
 export const removeComma = (price) => {
     let originalPrice = price.toString().split(",").join("");
     return originalPrice;
 };
 
+// Generate overlap and notInclude
 export const getNumberIntervals = (ageGroup) => {
     // Create an array with all ages
     let ageList = [];
@@ -19,6 +22,7 @@ export const getNumberIntervals = (ageGroup) => {
         ageList.push(i);
     }
 
+    // Check repeat overlap groups. Will use it later
     const checkRepeat = (list, subgroup) => {
         for (let i = 0; i < list.length; i++) {
             let count = 0;
@@ -98,6 +102,7 @@ export const getNumberIntervals = (ageGroup) => {
     return result;
 };
 
+// Put startAge and end Age into a array
 export const generateAgeGroup = (list) => {
     let result = [];
     for (let i = 0; i < list.length; i++) {
@@ -107,6 +112,7 @@ export const generateAgeGroup = (list) => {
     return result;
 };
 
+// Generate output result
 export const generateResult = (list) => {
     let result = [];
     for (let i = 0; i < list.length; i++) {

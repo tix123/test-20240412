@@ -14,7 +14,7 @@ const PriceInput = (props) => {
 
     const regex = /^-?(?!0\d+)\d*(,\d*)*(\.\d+)?$/g;
 
-    // Update when price change
+    // Update format when price change
     useEffect(() => {
         if (props.price.length === 0) {
             setDisplayErr("block");

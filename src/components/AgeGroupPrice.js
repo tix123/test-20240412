@@ -22,7 +22,7 @@ const AgeGroupPrice = (props) => {
     );
     const dispatch = useDispatch();
 
-    // Store to redux when change
+    // Store to redux when price change
     useEffect(() => {
         let obj = {};
         obj.id = props.id;
@@ -30,6 +30,7 @@ const AgeGroupPrice = (props) => {
         dispatch(editPrice(obj));
     }, [price]);
 
+    // Store to redux when startAge change
     useEffect(() => {
         // make a deep copy
         let tempList = JSON.parse(JSON.stringify(priceSetupList));
@@ -80,6 +81,7 @@ const AgeGroupPrice = (props) => {
         dispatch(editStartAge(obj));
     }, [startAge]);
 
+    // Store to redux when endAge change
     useEffect(() => {
         // make a deep copy
         let tempList = JSON.parse(JSON.stringify(priceSetupList));
@@ -132,6 +134,7 @@ const AgeGroupPrice = (props) => {
 
     const index = props.index + 1;
 
+    // Delete an AgeGroupPrice
     const handleDelete = () => {
         dispatch(deletePriceSetup(props.id));
     };
